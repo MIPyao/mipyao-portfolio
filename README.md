@@ -17,8 +17,6 @@
     <a href="https://github.com/gaomingzhao666/nano-portfolio/blob/master/README.md">English</a>
       <strong> · </strong>
     <a href="https://github.com/gaomingzhao666/nano-portfolio/blob/master/README-CN.md">简体中文</a>
-      <strong> · </strong>
-    <a href="https://github.com/gaomingzhao666/nano-portfolio/blob/master/README-JP.md">日本語</a>
   </p>
 </div>
 

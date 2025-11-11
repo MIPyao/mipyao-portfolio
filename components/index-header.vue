@@ -216,15 +216,7 @@ const languages = [
 				setLocale('cn')
 			},
 		},
-	],
-	[
-		{
-			label: '日本語',
-			click: () => {
-				setLocale('jp')
-			},
-		},
-	],
+	]
 ]
 
 // keyword handler

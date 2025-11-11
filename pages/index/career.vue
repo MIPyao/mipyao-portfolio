@@ -24,7 +24,6 @@
 
 <script lang="ts" setup>
 import careerContentEN from '@/i18n/content/career/en'
-import careerContentJP from '@/i18n/content/career/jp'
 import careerContentCN from '@/i18n/content/career/cn'
 
 const { t, locale } = useI18n()
@@ -43,13 +42,11 @@ interface CareerContent {
 	site: string
 	positionRoles: string[]
 }
-// make carrerContent reactive in order to switch localization reactively
+// make careerContent reactive in order to switch localization reactively
 let careerContent: CareerContent[] = reactive(
 	locale.value === 'en'
 		? careerContentEN
-		: locale.value === 'cn'
-		? careerContentCN
-		: careerContentJP
+		: careerContentCN
 )
 
 watch(
@@ -58,9 +55,6 @@ watch(
 		switch (newValue) {
 			case 'en':
 				careerContent = careerContentEN
-				break
-			case 'jp':
-				careerContent = careerContentJP
 				break
 			case 'cn':
 				careerContent = careerContentCN

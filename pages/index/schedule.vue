@@ -18,7 +18,6 @@
 
 <script lang="ts" setup>
 import scheduleContentEN from '@/i18n/content/schedule/en'
-import scheduleContentJP from '@/i18n/content/schedule/jp'
 import scheduleContentCN from '@/i18n/content/schedule/cn'
 
 const { t, locale } = useI18n()
@@ -42,9 +41,7 @@ interface ScheduleContent {
 let scheduleContent: ScheduleContent[] = reactive(
 	locale.value === 'en'
 		? scheduleContentEN
-		: locale.value === 'cn'
-		? scheduleContentCN
-		: scheduleContentJP
+		: scheduleContentCN
 )
 
 watch(
@@ -53,9 +50,6 @@ watch(
 		switch (newValue) {
 			case 'en':
 				scheduleContent = scheduleContentEN
-				break
-			case 'jp':
-				scheduleContent = scheduleContentJP
 				break
 			case 'cn':
 				scheduleContent = scheduleContentCN
