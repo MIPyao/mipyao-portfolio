@@ -1,0 +1,59 @@
+<template>
+    <UContainer class="mt-5">
+        <!-- tabs -->
+        <UTabs v-model="selected" :items="items" class="w-full" />
+
+        <!-- content -->
+        <ContactInfo v-if="selected === 0" />
+        <ContactForm v-if="selected === 1" />
+    </UContainer>
+</template>
+
+<script lang="ts" setup>
+definePageMeta({
+    layout: 'main',
+})
+
+const { t } = useI18n()
+
+useSeoMeta({
+    title: computed(() => t('contact.title')),
+    description: computed(() => t('contact.description')),
+})
+
+const items = [
+    {
+        label: 'Contact Info',
+        component: 'ContactInfo',
+        icon: 'i-heroicons:finger-print',
+    },
+    {
+        label: 'Contact Form',
+        component: 'ContactForm',
+        icon: 'i-heroicons:folder-plus',
+    },
+]
+
+const route = useRoute()
+const router = useRouter()
+const selected = computed({
+    get() {
+        const index = items.findIndex((item) => item.label === route.query.tab)
+        if (index === -1) {
+            return 0
+        }
+
+        return index
+    },
+    set(value) {
+        // Hash is specified here to prevent the page from scrolling to the top
+        const item = items[value]
+        if (item) {
+            router.replace({
+                query: { tab: item.label },
+                hash: '#control-the-selected-index',
+            })
+        }
+    },
+})
+</script>

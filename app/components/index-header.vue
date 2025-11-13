@@ -1,10 +1,6 @@
 <template>
 	<header class="flex justify-between items-center m-5 border-b-gray-700">
-		<NuxtLink
-			to="https://github.com/gaomingzhao666"
-			target="_blank"
-			class="flex"
-		>
+		<NuxtLink to="https://github.com/gaomingzhao666" target="_blank" class="flex">
 			<ico-nano class="text-5xl rounded-full nano-rotate" />
 
 			<section class="ml-3 hidden md:block">
@@ -14,85 +10,43 @@
 		</NuxtLink>
 
 		<!-- search repo input -->
-		<UInput
-			id="searchRepoInput"
-			v-model="searchReposKeywords"
-			icon="i-mingcute:search-line"
-			size="lg"
-			name="searchReposName"
-			color="white"
-			trailing
-			:placeholder="$t('placeholder')"
-			class="w-1/3 hidden md:block"
-			:ui="{ icon: { trailing: { pointer: '' } } }"
-		>
+		<UInput id="searchRepoInput" v-model="searchReposKeywords" icon="i-mingcute:search-line" size="lg"
+			name="searchReposName" color="white" trailing :placeholder="$t('placeholder')" class="w-1/3 hidden md:block"
+			:ui="{ icon: { trailing: { pointer: '' } } }">
 			<template #trailing>
 				<UKbd v-show="searchReposKeywords === ''" size="md">Q</UKbd>
-				<UButton
-					v-show="searchReposKeywords !== ''"
-					size="sm"
-					variant="solid"
-					class="font-normal"
-					@click="
-						router.push({
-							path: '/index',
-							query: { searchKeywords: searchReposKeywords },
-						})
-					"
-					>{{ $t('search') }}</UButton
-				>
+				<UButton v-show="searchReposKeywords !== ''" size="sm" variant="solid" class="font-normal" @click="
+					router.push({
+						path: '/index',
+						query: { searchKeywords: searchReposKeywords },
+					})
+					">{{ $t('search') }}</UButton>
 			</template>
 		</UInput>
 
 		<section class="flex items-center">
-			<UDropdown
-				:items="languages"
-				:popper="{ placement: 'bottom-start' }"
-				:ui="{
+			<UDropdown :items="languages" :popper="{ placement: 'bottom-start' }" :ui="{
+				rounded: 'rounded-xl',
+				item: {
+					padding: 'p-3',
 					rounded: 'rounded-xl',
-					item: {
-						padding: 'p-3',
-						rounded: 'rounded-xl',
-					},
-				}"
-			>
-				<UButton
-					icon="i-heroicons:language"
-					color="gray"
-					variant="ghost"
-					aria-label="Language Switch"
-				/>
+				},
+			}">
+				<UButton icon="i-heroicons:language" color="gray" variant="ghost" aria-label="Language Switch" />
 			</UDropdown>
 
-			<UButton
-				:icon="
-					isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'
-				"
-				color="gray"
-				variant="ghost"
-				aria-label="Theme"
-				class="mx-3"
-				@click="isDark = !isDark"
-			/>
+			<UButton :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'
+				" color="gray" variant="ghost" aria-label="Theme" class="mx-3" @click="isDark = !isDark" />
 
 			<NuxtLink v-if="!isLogin" to="/login">
-				<UButton
-					icon="i-heroicons:arrow-up-circle"
-					color="white"
-					variant="solid"
-					size="lg"
-				>
+				<UButton icon="i-heroicons:arrow-up-circle" color="white" variant="solid" size="lg">
 					{{ $t('login') }}
 				</UButton>
 			</NuxtLink>
-			<UDropdown
-				v-else
-				v-model:open="isUserOpen"
-				:ui="{
-					rounded: 'rounded-xl',
-					item: { padding: 'p-3', rounded: 'rounded-xl' },
-				}"
-				:items="[
+			<UDropdown v-else v-model:open="isUserOpen" :ui="{
+				rounded: 'rounded-xl',
+				item: { padding: 'p-3', rounded: 'rounded-xl' },
+			}" :items="[
 					[
 						{
 							label: $t('logout'),
@@ -100,88 +54,49 @@
 							click: logout,
 						},
 					],
-				]"
-				:popper="{ placement: 'bottom-start' }"
-			>
+				]" :popper="{ placement: 'bottom-start' }">
 				<UButton color="primary" variant="ghost">{{ username }}</UButton>
 			</UDropdown>
 
-			<UButton
-				icon="i-heroicons:ellipsis-horizontal"
-				color="white"
-				variant="solid"
-				size="lg"
-				class="md:hidden ml-3"
-				@click="isModalOpen = true"
-			/>
+			<UButton icon="i-heroicons:ellipsis-horizontal" color="white" variant="solid" size="lg"
+				class="md:hidden ml-3" @click="isModalOpen = true" />
 		</section>
 	</header>
 
 	<!-- modal for mobile devices-->
 	<UModal v-model="isModalOpen" fullscreen>
-		<UCard
-			:ui="{
-				base: 'h-full flex flex-col',
-				rounded: '',
-				sectionide: 'sectionide-y sectionide-gray-200 dark:sectionide-gray-800',
-				body: {
-					base: 'grow',
-				},
-			}"
-		>
+		<UCard :ui="{
+			base: 'h-full flex flex-col',
+			rounded: '',
+			sectionide: 'sectionide-y sectionide-gray-200 dark:sectionide-gray-800',
+			body: {
+				base: 'grow',
+			},
+		}">
 			<template #header>
 				<section class="flex items-center justify-between">
-					<h3
-						class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
-					>
+					<h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
 						{{ $t('navigation') }}
 					</h3>
 					<section>
-						<UButton
-							:icon="
-								isDark
-									? 'i-heroicons-moon-20-solid'
-									: 'i-heroicons-sun-20-solid'
-							"
-							color="gray"
-							variant="ghost"
-							aria-label="Theme"
-							class="mx-3"
-							@click="isDark = !isDark"
-						/>
+						<UButton :icon="isDark
+								? 'i-heroicons-moon-20-solid'
+								: 'i-heroicons-sun-20-solid'
+							" color="gray" variant="ghost" aria-label="Theme" class="mx-3" @click="isDark = !isDark" />
 
-						<UButton
-							color="gray"
-							variant="ghost"
-							icon="i-heroicons-x-mark-20-solid"
-							@click="isModalOpen = false"
-						/>
+						<UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid"
+							@click="isModalOpen = false" />
 					</section>
 				</section>
 			</template>
 
-			<UInput
-				id="searchRepoInput"
-				v-model="searchReposKeywords"
-				icon="i-mingcute:search-line"
-				size="xl"
-				name="searchReposName"
-				color="white"
-				trailing
-				:placeholder="$t('placeholder')"
-				class="w-full block text-center"
-				:ui="{ icon: { trailing: { pointer: '' } } }"
-			>
+			<UInput id="searchRepoInput" v-model="searchReposKeywords" icon="i-mingcute:search-line" size="xl"
+				name="searchReposName" color="white" trailing :placeholder="$t('placeholder')"
+				class="w-full block text-center" :ui="{ icon: { trailing: { pointer: '' } } }">
 				<template #trailing>
 					<UKbd v-show="searchReposKeywords === ''" size="md">Q</UKbd>
-					<UButton
-						v-show="searchReposKeywords !== ''"
-						size="sm"
-						variant="solid"
-						class="font-normal"
-						@click="searchRepo"
-						>{{ $t('search') }}</UButton
-					>
+					<UButton v-show="searchReposKeywords !== ''" size="sm" variant="solid" class="font-normal"
+						@click="searchRepo">{{ $t('search') }}</UButton>
 				</template>
 			</UInput>
 
@@ -271,7 +186,7 @@ const logout = async () => {
 	})
 
 	toast.add({ title: data.message })
-	router.push({ name: 'login' })
+	router.push('/login')
 }
 </script>
 
