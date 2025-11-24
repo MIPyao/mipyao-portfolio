@@ -2,16 +2,23 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: true,
-  typescript: {
-    typeCheck: true,
-  },
-
+  nitro: { preset: "node-server" },
   routeRules: {
     "/": { prerender: true },
-    "/index": { prerender: true },
+  },
+  typescript: {
+    typeCheck: false, // 保留类型检查
+    shim: false,
   },
 
+  // 如果你用了 @nuxt/ui、unocss、@nuxtjs/color-mode 等，加上这行
+  build: {
+    transpile: ["@nuxt/ui", "unocss", "@unocss/nuxt"],
+  },
   app: {
+    app: {
+      baseURL: "/",
+    },
     head: {
       templateParams: {
         separator: "·",

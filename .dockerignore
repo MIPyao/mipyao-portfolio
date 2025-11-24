@@ -32,3 +32,13 @@
 **/dist
 LICENSE
 README.md
+.output
+.nuxt
+.dist
+.github
+.env*
+npm-debug.log*
+pnpm-debug.log*
+*.tsbuildinfo
+.DS_Store
+coverage
