@@ -2,7 +2,14 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: true,
-  nitro: { preset: "node-server" },
+  nitro: {
+    preset: "node-server",
+    compressPublicAssets: {
+      brotli: true, // 启用 brotli（默认 gzip）
+      gzip: true, // 同时生成 gzip（浏览器 fallback）
+      threshold: 1024, // 小于 1KB 不压缩（可选，优化小文件）
+    },
+  },
   routeRules: {
     "/": { prerender: true },
   },
@@ -68,6 +75,7 @@ export default defineNuxtConfig({
       redirectOn: "no prefix",
       alwaysRedirect: false,
     },
+    skipSettingLocaleOnNavigate: true,
     locales: [
       {
         code: "en",

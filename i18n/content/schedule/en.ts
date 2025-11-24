@@ -1,10 +1,10 @@
 export default [
 	{
 		reference:
-			'https://nano-blog-bice.vercel.app/post/2025/2025-08-13/annual-schedule-for-2025',
+			'https://MIPYao-blog-bice.vercel.app/post/2025/2025-08-13/annual-schedule-for-2025',
 		title: 'Schedule for 2025',
 		description:
-			'Schedule for 2025 by Nano, future career and preparations for full year',
+			'Schedule for 2025 by MIPYao, future career and preparations for full year',
 		version: 1,
 		list: [
 			{

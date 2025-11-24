@@ -4,19 +4,19 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/gaomingzhao666/nano-portfolio">
+  <a href="https://github.com/MIPYao/mipyao-portfolio">
     <img src="/public/favicon.ico" alt="Logo" width="100" height="100">
   </a>
 
-  <h3 align="center">Nano Portfolio</h3>
+  <h3 align="center">MIPYao Portfolio</h3>
 
   <p align="center">
-    ❤️ 由 Nuxt3 生态全栈开发，可自动导入 Github 数据的开发者作品集网站 ❤️
+    ❤️ 由 Nuxt3 生态全栈开发，可自动导入 Github 数据的开发者作品集网站，已迁移至Nuxt4❤️
     <br />
     <br />
-    <a href="https://github.com/gaomingzhao666/nano-portfolio/blob/master/README.md">English</a>
+    <a href="https://github.com/MIPYao/mipyao-portfolio/blob/master/README.md">English</a>
       <strong> · </strong>
-    <a href="https://github.com/gaomingzhao666/nano-portfolio/blob/master/README-CN.md">简体中文</a>
+    <a href="https://github.com/MIPYao/mipyao-portfolio/blob/master/README-CN.md">简体中文</a>
   </p>
 </div>
 
@@ -43,7 +43,7 @@
 
 > 上方是中等大小的主页截图, [点击此处](https://github.com/gaomingzhao666/nano-portfolio/tree/main/public/SCREENSHOT) 可查看更多详细截图。
 
-Nano-portfolio 是一个与 Github Octokit 和 Nuxt3 生态结合的开发者个人简介网页应用，其使用的大部分依赖被官方所支持和维护，其中包括 `Nuxt-UI` `Nuxt-Mongoose` `Pinia` `i18n` 等。所有模块均与 Nuxt3 所兼容，库内所有代码均使用组合式 API 以及 ESM 进行模块导入。
+MIPYao-portfolio 是一个与 Github Octokit 和 Nuxt4 生态结合的开发者个人简介网页应用，其使用的大部分依赖被官方所支持和维护，其中包括 `Nuxt-UI` `Nuxt-Mongoose` `Pinia` `i18n` 等。所有模块均与 Nuxt4 所兼容，库内所有代码均使用组合式 API 以及 ESM 进行模块导入。
 
 ## 技术栈
 

@@ -4,19 +4,19 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/gaomingzhao666/nano-portfolio">
+  <a href="https://github.com/MIPYao/mipyao-portfolio">
     <img src="/public/favicon.ico" alt="Logo" width="100" height="100">
   </a>
 
-  <h3 align="center">Nano Portfolio</h3>
+  <h3 align="center">MIPYao Portfolio</h3>
 
   <p align="center">
     ❤️ A modern and open-source developers portfolio template that can automatically import Github profile and repository information, made by Nuxt ecosystem ❤️
     <br />
     <br />
-    <a href="https://github.com/gaomingzhao666/nano-portfolio/blob/master/README.md">English</a>
+    <a href="https://github.com/MIPYao/mipyao-portfolio/blob/master/README.md">English</a>
       <strong> · </strong>
-    <a href="https://github.com/gaomingzhao666/nano-portfolio/blob/master/README-CN.md">简体中文</a>
+    <a href="https://github.com/MIPYao/mipyao-portfolio/blob/master/README-CN.md">简体中文</a>
   </p>
 </div>
 
